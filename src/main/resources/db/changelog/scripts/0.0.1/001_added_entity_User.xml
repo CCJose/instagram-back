@@ -7,7 +7,7 @@
     <!--
         Added the entity User.
     -->
-    <changeSet id="0.0.1-001-1" author="jose" context="master">
+    <changeSet id="0.0.1-001-1" author="jose" >
         <createTable tableName="users" remarks="Entity users">
             <column name="username" type="varchar(255)" remarks="The username.">
                 <constraints nullable="false" primaryKey="true" />
