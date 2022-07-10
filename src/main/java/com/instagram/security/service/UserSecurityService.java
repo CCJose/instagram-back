@@ -1,6 +1,7 @@
-package com.instagram.auth;
+package com.instagram.security.service;
 
-import liquibase.pro.packaged.A;
+import com.instagram.repository.UserRepository;
+import com.instagram.security.model.UserSecurity;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,7 +14,7 @@ public class UserSecurityService implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Override
-    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserSecurity loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }

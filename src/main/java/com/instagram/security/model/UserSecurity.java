@@ -1,30 +1,36 @@
-package com.instagram.auth;
+package com.instagram.security.model;
 
-import liquibase.repackaged.org.apache.commons.lang3.builder.ToStringExclude;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Collection;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "users")
-public class User implements UserDetails {
+@Builder
+public class UserSecurity implements UserDetails {
 
     @Id
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "user_password")
     private String password;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+//        return AuthorityUtils.NO_AUTHORITIES;
+        return AuthorityUtils.commaSeparatedStringToAuthorityList("profile,prueba");
     }
 
     @Override
@@ -57,3 +63,6 @@ public class User implements UserDetails {
         return true;
     }
 }
+
+
+

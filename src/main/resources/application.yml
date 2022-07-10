@@ -1,3 +1,5 @@
+server.port: 8081
+
 spring:
   datasource:
     username: instagram
@@ -8,9 +10,13 @@ spring:
       hibernate:
         default_schema: instagram
         ddl-auto: none
+    show-sql: true
   liquibase:
     enabled: true
     drop-first: false
 hibernate:
   dialect: org.hibernate.dialect.Oracle10gDialect
+
+secret: instagramsecret
+
 
