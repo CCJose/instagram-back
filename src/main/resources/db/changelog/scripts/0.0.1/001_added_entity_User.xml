@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!--
+        Added the entity User.
+    -->
+    <changeSet id="0.0.1-001-1" author="jose" context="master">
+        <createTable tableName="users" remarks="Entity users">
+            <column name="username" type="varchar(255)" remarks="The username.">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="password" type="varchar(255)" remarks="The password.">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+        	<dropTable tableName="users"/>
+        </rollback>
+    </changeSet>
+
+
+
+</databaseChangeLog>

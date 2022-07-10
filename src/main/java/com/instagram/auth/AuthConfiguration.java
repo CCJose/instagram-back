@@ -22,10 +22,11 @@ import org.springframework.security.web.context.SecurityContextPersistenceFilter
         prePostEnabled = true)
 public class AuthConfiguration {
 
-//    @Bean
-//    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+    @Bean
+    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+//        authenticationManagerBuilder.userDetailsService(username -> userRepo.)
 //        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-//    }
+    }
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
