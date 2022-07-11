@@ -1,5 +1,7 @@
 package com.instagram.service;
 
+import com.instagram.handler.ErrorCode;
+import com.instagram.handler.exception.InstagramException;
 import com.instagram.model.dto.TokenDTO;
 import com.instagram.model.dto.UserDTO;
 import com.instagram.security.TokenManager;
@@ -7,7 +9,6 @@ import com.instagram.security.model.UserSecurity;
 import com.instagram.security.service.UserSecurityService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class LoginService {
 
     if (!passwordEncoder.matches(userDTO.getPassword(), userDetails.getPassword())) {
       log.error("Invalid password");
-      throw new BadCredentialsException("Invalid password");
+      throw new InstagramException(ErrorCode.UNAUTHORIZED);
     }
 
     return new TokenDTO(tokenManager.generateJwtToken(userDetails));

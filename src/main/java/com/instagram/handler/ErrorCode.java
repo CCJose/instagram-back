@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 @Getter
 public enum ErrorCode {
-  UNAUTHORIZED(1_000, HttpStatus.UNAUTHORIZED, "unauthorized");
+  UNAUTHORIZED(1_000, HttpStatus.UNAUTHORIZED, "Unauthorized");
 
   private final int errorCode;
   private final HttpStatus httpCode;
