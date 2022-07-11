@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class LoginController {
 
-    private final LoginService loginService;
+  private final LoginService loginService;
 
-    @PostMapping("login")
-    public ResponseEntity<TokenDTO> createToken(@RequestBody UserDTO userDTO) {
-        return ResponseEntity.ok(loginService.getToken(userDTO));
-    }
-
+  @PostMapping("login")
+  public ResponseEntity<TokenDTO> createToken(@RequestBody UserDTO userDTO) {
+    return ResponseEntity.ok(loginService.getToken(userDTO));
+  }
 }
