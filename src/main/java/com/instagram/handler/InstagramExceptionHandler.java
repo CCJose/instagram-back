@@ -19,7 +19,7 @@ public class InstagramExceptionHandler {
   }
 
   private ResponseEntity<ApiResponseError> buildResponse(InstagramException exception) {
-    return new ResponseEntity(
+    return new ResponseEntity<>(
         new ApiResponseError(
             exception.getErrorCode().getHttpCode(),
             exception.getErrorCode().getErrorCode(),

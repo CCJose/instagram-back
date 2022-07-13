@@ -8,5 +8,5 @@ import lombok.Getter;
 @Getter
 public class InstagramException extends RuntimeException {
 
-  private ErrorCode errorCode;
+  private final ErrorCode errorCode;
 }

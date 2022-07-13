@@ -28,8 +28,7 @@ public class UserSecurity implements UserDetails {
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    // return AuthorityUtils.NO_AUTHORITIES;
-    return AuthorityUtils.commaSeparatedStringToAuthorityList("profile,prueba");
+    return AuthorityUtils.NO_AUTHORITIES;
   }
 
   @Override
